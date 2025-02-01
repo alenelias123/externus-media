@@ -28,6 +28,23 @@ body {
   color: white;
   z-index: -2;
 }
+body {
+  background-color: #000; /* Dark background */
+  margin: 0;
+  overflow: hidden; /* Prevents scrolling issues */
+}
+
+.blur-gradient {
+  position: fixed; /* Make sure it moves with the viewport */
+  top: 0;
+  left: 0;
+  width: 300px; /* Adjust size as needed */
+  height: 300px;
+  background: radial-gradient(circle, rgba(200, 200, 200, 0.3), rgba(0, 0, 0, 0));
+  filter: blur(120px);
+  pointer-events: none; /* Prevent interference with other elements */
+  transform: translate(-50%, -50%); /* Ensure proper centering */
+}
 
 /* Container for Shapes */
 .shapes-container {
@@ -214,13 +231,35 @@ body, html {
 
 
 /* About Us Heading */
+.about-box h1 {
+  font-size: 5.2rem;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  position: relative;
+  margin-bottom: 2%;
+}
 .about-box h2 {
-  font-size: 6rem;
-   color: #fff;
+  font-size: 5.2rem;
+  background-image: linear-gradient(45deg, #ff007c, #9300ff);
+  background-size: 400%,400%;
   text-transform: uppercase;
   text-align: center;
   position: relative;
   margin-bottom: 100px;
+  animation: gradientAnimation 10s ease infinite;  /* Smooth gradient animation */
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 70% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 70% 50%;
+  }
 }
 
 /* About Us Text */
@@ -265,8 +304,14 @@ body, html {
 }
 
 .logo-heading h1 {
+  font-family: Fonts/Aquire,sans-serif;
+  color: transparent;
+  text-transform: uppercase;
+  position: relative;
+  background: linear-gradient(to right, #ff007c, #9300ff);
+  -webkit-background-clip: text;
+  background-clip: text;
   font-size: 1.8rem;
-  color: #fff;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -311,6 +356,8 @@ body {
 }
 
 
+
+
 #who-we-are {
  
   padding: 10px 0px;
@@ -318,22 +365,24 @@ body {
   justify-content: flex-start; /* Align items to the left */
   align-items: flex-start;    /* Align items to the top */
   position: relative;
-  margin-left: 55px;  /* Ensure the section is aligned to the leftmost */
+  margin-left: 5rem;  /* Ensure the section is aligned to the leftmost */
+  transition: linear;
 }
 
 #who-we-are .section-container {
-  max-width: 800px;
+  max-width: 80rem;
   width: 50%;
   background: rgba(255, 255, 255, 0.1); /* semi-transparent */
   padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.6);
+  border-radius: 2rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
   text-align: left; /* Align text to the left */
   color: #fff;
   font-family: 'Arial', sans-serif;
   transition: all 0.2s ease-in-out; /* Smooth transition for hover effect */
   backdrop-filter: blur(10px); /* Frosted glass effect */
+  margin-bottom: 5%;
 }
   
 /* Glowing outline on hover */
@@ -342,15 +391,15 @@ body {
 }
 
 #who-we-are h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  margin-bottom: 2%;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
 
 #who-we-are p {
-  font-size: 18px;
+  font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 30px;
   color: #e0e0e0;
@@ -368,6 +417,7 @@ body {
   box-shadow: 0 0 10px rgba(255, 0, 255, 0.6);
   animation: pulsate 2s ease-in-out infinite;
 }
+
 
 @keyframes pulsate {
   0% {
@@ -394,17 +444,18 @@ body {
 }
 
 #what-we-do .section-container {
-  max-width: 800px;
-  width: 50%;
+  max-width: 80rem;
+  width: 60%;
   background: rgba(255, 255, 255, 0.1); /* semi-transparent */
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.6);
+  padding: 5%;
+  border-radius: 2rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
   text-align: left; /* Align text to the left */
   color: #fff;
   font-family: 'Arial', sans-serif;
   transition: all 0.2s ease; /* Smooth transition for hover effect */
+  margin-bottom: 5%;
 }
 
 /* Glowing outline on hover */
@@ -414,8 +465,8 @@ body {
 }
 
 #what-we-do h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  margin-bottom: 2%;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -423,7 +474,7 @@ body {
 
 #what-we-do p,
 #what-we-do ul {
-  font-size: 18px;
+  font-size: 1.12rem;
   line-height: 1.6;
   margin-bottom: 30px;
   color: #e0e0e0;
@@ -431,7 +482,7 @@ body {
 
 #what-we-do ul {
   list-style-type: none; /* Remove default list styling */
-  padding-left: 20px;
+  padding-left: 2%;
 }
 
 #what-we-do li {
@@ -482,12 +533,12 @@ body {
 }
 
 #why-choose-us .section-container {
-  max-width: 800px;
+  max-width: 80rem;
   width: 50%;
   background: rgba(255, 255, 255, 0.1); /* semi-transparent */
   padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.6);
+  border-radius: 2rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
   text-align: left; /* Align text to the left */
   color: #fff;
@@ -502,7 +553,7 @@ body {
 }
 
 #why-choose-us h2 {
-  font-size: 36px;
+  font-size: 2rem;
   margin-bottom: 20px;
   font-weight: bold;
   text-transform: uppercase;
@@ -510,8 +561,8 @@ body {
 }
 
 #why-choose-us p {
-  font-size: 18px;
-  line-height: 1.6;
+  font-size: 1.12rem;
+  line-height: 1.5;
   margin-bottom: 30px;
   color: #e0e0e0;
 }
@@ -641,4 +692,14 @@ body {
 .social-icons a:hover {
   color: white;
 }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 
